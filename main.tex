@@ -1,0 +1,83 @@
+\documentclass[english,brazil,a4paper,utf8]{utfpr-cm-monograph}
+
+\usepackage{latexscholar-cite}
+\usepackage{latexscholar-translation}
+\usepackage{latexscholar-bibtex}
+
+% Este comando não é necessário: utilizei apenas para deixar o latex2rtf
+% feliz (e descobrir a codificação do texto).
+\usepackage[utf8]{inputenc}
+
+% Define o caminho das figuras
+\graphicspath{{images/}}
+\graphicspath{{img/}}
+
+
+% Configura pacotes para a tabela do cronograma
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\newcommand{\fullcell}{\multicolumn{1}{>{\columncolor[gray]{0.5}}c}{}}
+\newcommand{\fullcellline}{\multicolumn{1}{>{\columncolor[gray]{0.5}}c|}{}}
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\newcommand{\y}{\rule{8pt}{4pt}}
+\newcommand{\n}{\hspace*{8pt}} 
+
+% Desativa hifenização, mantendo o texto justificado.
+% \tolerance=1
+% \emergencystretch=\maxdimen
+% \hyphenpenalty=10000
+% \hbadness=10000
+
+% Relaxa restrições para quebra de linha (evita linhas que
+% ultrapassam a margem)
+\sloppy
+
+
+% Dados que não mudam sobre a UTFPR
+\university{Universidade Tecnológica Federal do Paraná}
+\universityunit{Departamento Acadêmico de Computação}
+\program{Curso de Bacharelado em Ciência da Computação}
+\degree{Bacharel}
+\degreearea{Ciência da Computação}
+\goal{Trabalho de Conclusão de Curso}
+\address{Campo Mourão -- PR}
+
+
+% Dados que devem ser alterados
+\author{}
+\title{}
+\advisor{}
+\coadvisor{} % nome do co-orientador do trabalho, caso exista
+\depositshortdate{} % ano de entrega da monografia
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\begin{resumo}
+%Fazer assim:\\
+%Contexto / Problema: escrever 3 ou 4 frases;\\
+%Solução Proposta: escrever 2 ou 3 frases;\\
+%Resultados esperados: escrever 2 ou 3 frases;\\
+\end{resumo}
+
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+\mainmatter
+\include{capitulos/introducao}
+\include{capitulos/referencial-teorico}
+\include{capitulos/proposta}
+
+\bibliographystyle{abnt-alf}
+\bibliography{main} % geração automática das referências a partir do arquivo main.bib
+
+\backmatter
+
+\end{document}
