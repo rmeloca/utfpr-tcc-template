@@ -1,83 +1,138 @@
-\documentclass[english,brazil,a4paper,utf8]{utfpr-cm-monograph}
-
-\usepackage{latexscholar-cite}
-\usepackage{latexscholar-translation}
-\usepackage{latexscholar-bibtex}
+\documentclass[12pt,english,brazil,a4paper,utf8,oneside]{utfpr-tcc}
 
 % Este comando não é necessário: utilizei apenas para deixar o latex2rtf
 % feliz (e descobrir a codificação do texto).
 \usepackage[utf8]{inputenc}
 
-% Define o caminho das figuras
-\graphicspath{{images/}}
-\graphicspath{{img/}}
+% Suporte a figuras e subfiguras
+\usepackage{graphics}
+\usepackage{subfigure}
 
-
-% Configura pacotes para a tabela do cronograma
+% Suporte a tabelas (principalmente do cronograma)
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{hhline}
+\usepackage{xcolor}
+
+% Elementos geralmente utilizados na tabela do cronograma
 \newcommand{\fullcell}{\multicolumn{1}{>{\columncolor[gray]{0.5}}c}{}}
 \newcommand{\fullcellline}{\multicolumn{1}{>{\columncolor[gray]{0.5}}c|}{}}
 \newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
 \newcommand{\y}{\rule{8pt}{4pt}}
 \newcommand{\n}{\hspace*{8pt}} 
 
-% Desativa hifenização, mantendo o texto justificado.
-% \tolerance=1
-% \emergencystretch=\maxdimen
-% \hyphenpenalty=10000
-% \hbadness=10000
+% Define o caminho das figuras
+\graphicspath{{images/}}
 
-% Relaxa restrições para quebra de linha (evita linhas que
-% ultrapassam a margem)
-\sloppy
-
-
-% Dados que não mudam sobre a UTFPR
+% Dados do curso que não precisam de alteração
 \university{Universidade Tecnológica Federal do Paraná}
+\universityen{Federal University of Technology -- Paraná}
 \universityunit{Departamento Acadêmico de Computação}
+\address{Campo Mourão}
+\addressen{Campo Mourão, PR, Brazil}
+\documenttype{Monografia}
+\documenttypeen{Monograph}
+\degreetype{Graduação}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Alterar daqui para baixo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Dados do curso. Caso seja BCC:
 \program{Curso de Bacharelado em Ciência da Computação}
+\programen{Undergradute Program in Computer Science}
 \degree{Bacharel}
 \degreearea{Ciência da Computação}
-\goal{Trabalho de Conclusão de Curso}
-\address{Campo Mourão -- PR}
+% Caso seja TSI:
+% \program{Curso Superior de Tecnologia em Sistemas para Internet}
+% \programen{Undergradute Program in Tecnology for Internet Systems}
+% \degree{Tecnólogo}
+% \degreearea{Tecnologia em Sistemas para Internet}
 
 
-% Dados que devem ser alterados
-\author{}
-\title{}
-\advisor{}
-\coadvisor{} % nome do co-orientador do trabalho, caso exista
-\depositshortdate{} % ano de entrega da monografia
+% Dados da disciplina. Escolha uma das opções e a descomente:
+% TCC1:
+\goal{Proposta de Trabalho de Conclusão de Curso de Graduação}
+\course{Trabalho de Conclusão de Curso 1}
+% TCC2:
+% \goal{Trabalho de Conclusão de Curso de graduação}
+% \course{Trabalho de Conclusão de Curso 2}
+
+
+% Dados do TCC (precisa alterar)
+\author{}  % Seu nome
+\title{} % Título do trabalho
+\titleen{} % Título traduzido para inglês
+\advisor{} % Nome do orientador. Lembre-se de prefixar com "Prof. Dr.", "Profª. Drª.", "Prof. Me." ou "Profª. Me."}
+% \coadvisor{} % Nome do coorientador, caso exista. Caso não exista, comente a linha.
+\depositshortdate{2016} % Ano em que depositou este documento
+
+% Dados da ficha catalografica. Ela é opcional, mas é uma boa ideia inserí-la. Exemplos para geração (http://fichacatalografica.sibi.ufrj.br/)
+\fichacatautor{}  % Nome conforme citado (ou seja, no formato "Sobrenome, Nome").
+\fichacatbib{Biblioteca da UTFPR de Campo Mourão} % Não alterar
+\fichacatpum{M488} % Código Cutter-Sanborn. Use a primeira letra do sobrenome seguido do número conforme as primeiras letras do sobrenome e a tabela http://www.amormino.com.br/cutter-sanborn/cutter1.html
+\fichacatpalcha{} % Assuntos do trabalho. Cada item deve ser enumerado e separado por ponto: 1. xxx. 2. yyy. 3. zzz.
+\fichacatpdois{} % Deixar em branco
 
 
 \begin{document}
-
+	
 \frontmatter
 \maketitle
 
 \begin{resumo}
-%Fazer assim:\\
-%Contexto / Problema: escrever 3 ou 4 frases;\\
-%Solução Proposta: escrever 2 ou 3 frases;\\
-%Resultados esperados: escrever 2 ou 3 frases;\\
+% TODO: se possível, escreva um resumo estruturado. Para TCC 1, o resumo estruturado teria os seguintes elementos:
+% \textbf{Contexto:} \\
+% \textbf{Objetivo:} \\
+% \textbf{Método:} \\
+% \textbf{Resultados esperados:} 
+% ou, para TCC 2:
+% \textbf{Contexto:} \\
+% \textbf{Objetivo:} \\
+% \textbf{Método:} \\
+% \textbf{Resultados:} \\
+% \textbf{Conclusões:}
+
+% Palavras-chaves, separadas por ponto (tente não definir mais do que cinco)
+\palavraschaves{}
 \end{resumo}
 
 
-\tableofcontents
+
+% Caso seja TCC 2, precisa traduzir o resumo e as palavras-chaves para inglês:
+% \begin{abstract}
+% \textbf{Context:}
+% \textbf{Objective:}
+% \textbf{Method:}
+% \textbf{Results:}
+% \textbf{Conclusions:}
+
+% Palavras-chaves em inglês, separadas por ponto.
+% \keywords{}
+% \end{abstract}
+
+
+
+% Listas (opcionais, mas recomenda-se a partir de 5 elementos)
 \listoffigures
 \listoftables
 
+% Sumário
+\tableofcontents
 
 \mainmatter
-\include{capitulos/introducao}
-\include{capitulos/referencial-teorico}
-\include{capitulos/proposta}
+% TODO: incluir arquivos latex com os capítulos
+% \include{introducao}
+% \include{referencial-teorico}
+% \include{proposta}
+% \include{resultados-preliminares}
 
 \bibliographystyle{abnt-alf}
 \bibliography{main} % geração automática das referências a partir do arquivo main.bib
 
 \backmatter
-
 \end{document}
