@@ -8,53 +8,22 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
+\input{cvs-id.def}
+\CVSExtract$Id: abntcite.sty,v 1.30 2006/04/25 15:57:42 gweber Exp $
+\CVSPackage{abntcite}{\space Chamadas de referencias no texto (NBR10520, NBR10522)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
 
 %Packages from standard LaTeX
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 
+%Pages from the abnTeX project
+\RequirePackage{abntex-abrev}
+\RequirePackage{abntex-text}
+\RequirePackage{abntex-default-design}
+
 %%%%%%  Options Declaration  %%%%%%
 
-
-%----------------------------------------------------------------
-%    Extracted from substr.sty (2000-06-15) 
-%----------------------------------------------------------------
-% Copyright 2000 Harald Harders <h.harders@tu-bs.de>
-% Look at www.ctan.org for original package
-%
-% Commands:
-%
-% \IfSubStringInString{substring}{string}{true part}{false part}
-% This command searches <substring> in <string> and executes the 
-% <true part> if it is and else the <else part>
-
-% expands the first and second argument with
-% \protected@edef and calls #3 with them:
-\newcommand{\su@ExpandTwoArgs}[3]{%
-  \protected@edef\su@SubString{#1}%
-  \protected@edef\su@String{#2}%
-  \expandafter\expandafter\expandafter#3%
-  \expandafter\expandafter\expandafter{%
-    \expandafter\su@SubString\expandafter
-  }\expandafter{\su@String}%
-}
-%%
-%% tests if #1 in #2. If yes execute #3, else #4
-\newcommand*{\IfSubStringInString}[2]{%
-  \su@ExpandTwoArgs{#1}{#2}\su@IfSubStringInString
-}
-%%
-\newcommand*{\su@IfSubStringInString}[2]{%
-  \def\su@compare##1#1##2\@nil{%
-    \def\su@param{##2}%
-    \ifx\su@param\@empty
-      \expandafter\@secondoftwo
-    \else
-      \expandafter\@firstoftwo
-    \fi
-  }%
-  \su@compare#2#1\@nil
-}
+\RequirePackage{substr}
 
 % To grab 6 letters.
 \newcommand{\grabsix}[6]{}
@@ -1198,7 +1167,7 @@
 \ifthenelse{\equal{#1}{\empty}}{}{, #1}, \etseqname}
 
 \ifthenelse{\equal{\AbntCallType}{numeric}}%
-{\renewcommand{\citeauthor}[1]{\citeauthoronline{#1}\cite{#1}}}{}
+{\renewcommand{\citeauthor}[1]{\citeauthoronline{#1} \cite{#1}}}{}
 
 
 \endinput
