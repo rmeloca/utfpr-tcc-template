@@ -1,2 +1,5 @@
 Requisitos:
-* https://github.com/magsilva/LaTeX-Scholar
+* LaTeX
+
+Opcional:
+* latex2rtf (https://github.com/magsilva/latex2rtf)

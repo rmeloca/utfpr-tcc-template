@@ -1,4 +1,3 @@
-%% $Id: abnt-alf.bst,v 1.52 2005/12/21 15:58:36 gweber Exp $
 %% Copyright 2001-2005 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
 %% Mantainer: Gerald Weber <gweber@codigolivre.org.br>
@@ -1348,27 +1347,6 @@ s t = %title equals first word, dont use bbl.ldots
 if$
 }
 
-%cvs keys have the general form $key: value $
-INTEGERS {key.pos value.pos}
-FUNCTION {extract.cvs.key} %we borrow the functionality of format.title.for.label
-{ 's := %holds the entire cvs string
-  #1 'key.pos :=
-  #0 'value.pos := %0= between first $ and :, 1=between : and second $, 2= at the end
-  "" 't := %holds the resulting value
-  {value.pos #0 = value.pos #1 = or}
-    { s key.pos #1 substring$ 'title.char :=
-      value.pos #0 =
-      { title.char ":" = {#1 'value.pos := key.pos #1 + 'key.pos :=} 'skip$ if$}
-      { title.char "$" =
-        {#2 'value.pos :=}
-        {t title.char * 't :=}
-	if$}
-     if$
-     key.pos #1 + 'key.pos :=
-     }
-  while$
-  t
-}
 
 %generates and extended label of type {Author}{AUTHOR}{YEAR}
 %for abnt.cite.style=1 they will be of type {Author}{Author}{YEAR}
@@ -2059,13 +2037,9 @@ FUNCTION {presort}
 }
 
 FUNCTION {set.default.abnt.variables}
-{ %if you change abnt-num to abnt-alf by hand you need also to change
-  %the name of RCSfile by hand, otherwise cvs takes care of it.
-  %
-  "$RCSfile: abnt-alf.bst,v $ " extract.cvs.key
+{
   %
   "abnt-alf.bst,v " = 'abnt.alf := % #1 para abnt-alf #0 para abnt-num
-  "$Revision: 1.52 $" extract.cvs.key 'abnt.bst.revision :=
   #0 'abnt.and.type     :=     % #0 "e"; #1 "&"
   "\emph" 'abnt.emphasize :=
   #0 'abnt.cite.style :=       %default norm version for NBR10520
