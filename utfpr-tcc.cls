@@ -331,29 +331,18 @@
 	}
 }
 
-
-%\newcommand{\dedicate}[1]{
-%	\thispagestyle{empty}
-%	\null
-%	\vfill
-%	\hfill \noindent\textsl{#1} \hspace{1cm} \par
-%	\vspace{3cm}
-%	\clearpage{\pagestyle{empty}\cleardoublepage}
-%}
-
 \newenvironment{agradecimentos}{
 	\cleardoublepage
 	\chapter*{Agradecimentos}
 }{}
 
-
-
 % Command to create a dedicate page.
 \newcommand{\dedicate}{
 	\cleardoublepage
+	\null
 	\vfill
 	\hfill
-	\parbox{.4\linewidth}{\textsl{\@dedication}}
+	\parbox{.4\linewidth}{\textsl{#1}}
 	\vspace{3cm}
 }
 
