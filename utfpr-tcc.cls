@@ -259,6 +259,7 @@
 		\coverpageone
 		\coverpagetwo
 	\end{titlepage}
+	\cleardoublepage
 }
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
