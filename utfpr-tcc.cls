@@ -339,7 +339,7 @@
 }{}
 
 % Command to create a dedicate page.
-\newcommand{\dedicate}{
+\newcommand{\dedicate}[1]{
 	\cleardoublepage
 	\null
 	\vfill
